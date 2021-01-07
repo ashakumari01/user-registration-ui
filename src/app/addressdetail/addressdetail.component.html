@@ -1,0 +1,73 @@
+<mat-card class="mat-card-style">
+  <mat-card-header class="card-header-style">Address Details</mat-card-header>
+
+  <mat-card-content class="card-content">
+    <div>
+    <form [formGroup]="addressDetailForm">
+      <div>
+        <mat-form-field class="mat-form-field-style">
+        <mat-label>Current Address:</mat-label>
+        <input matInput type="text" name="currentAddress" [(ngModel)]="currentAddress"  placeholder="Enter Address"   formControlName="currentAddress"
+        [ngClass]="{ 'is-invalid': submitted && formFields.currentAddress.errors }"/>
+        <div *ngIf="submitted && formFields.currentAddress.errors" class="invalid-feedback">
+          <div *ngIf="formFields.currentAddress.errors.required" class="required-field"></div>
+      </div>
+      </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="mat-form-field-style">
+        <mat-label>State:</mat-label>
+        <input matInput type="text" name="state" [(ngModel)]="state"  placeholder="Enter State"  formControlName="state"
+        [ngClass]="{ 'is-invalid': submitted && formFields.state.errors }"/>
+        <div *ngIf="submitted && formFields.state.errors" class="invalid-feedback">
+          <div *ngIf="formFields.state.errors.required" class="required-field"></div>
+      </div>
+      </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="mat-form-field-style">
+        <mat-label>City:</mat-label>
+        <input matInput type="text" name="city" [(ngModel)]="city"  placeholder="Enter City"   formControlName="city"
+        [ngClass]="{ 'is-invalid': submitted && formFields.city.errors }"/>
+        <div *ngIf="submitted && formFields.city.errors" class="invalid-feedback">
+          <div *ngIf="formFields.city.errors.required" class="required-field"></div>
+      </div>
+      </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="mat-form-field-style">
+        <mat-label>ZipCode:</mat-label>
+        <input matInput type="number" name="zipCode" [(ngModel)]="zipCode"  placeholder="Enter ZipCode"  formControlName="zipCode" maxlength="5"
+        [ngClass]="{ 'is-invalid': submitted && formFields.zipCode.errors }"/>
+        <div *ngIf="submitted && formFields.zipCode.errors" class="invalid-feedback">
+          <div *ngIf="formFields.zipCode.errors.required" class="required-field"></div>
+      </div>
+      <div *ngIf="formFields.zipCode.errors.maxlength">
+          ZipCode Should be of 5 digits.
+        </div> 
+      </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="mat-form-field-style">
+        <mat-label>Previous Address:</mat-label>
+        <input matInput type="text" name="previousAddress" [(ngModel)]="previousAddress"  placeholder="Enter Address"   formControlName="previousAddress"
+        [ngClass]="{ 'is-invalid': submitted && formFields.previousAddress.errors }"/>
+        <div *ngIf="submitted && formFields.previousAddress.errors" class="invalid-feedback">
+          <div *ngIf="formFields.previousAddress.errors.required" class="required-field"></div>
+      </div>
+      </mat-form-field>
+      </div>
+    
+      <button mat-button color="primary" (click)="onPrevious()" class="mat-button-style">Previous</button>
+      <button mat-button color="primary" (click)="onAddress()" class="mat-button-style-right">Next</button>
+  
+  
+  </form>
+  </div>
+  </mat-card-content>
+    </mat-card>
+  
