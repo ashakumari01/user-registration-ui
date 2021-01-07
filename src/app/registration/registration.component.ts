@@ -66,6 +66,7 @@ export class RegistrationComponent implements OnInit {
     this.registrationService.regDetailModel.manager = this.formFields.manager.value;
 
    console.log(this.registrationService.regDetailModel.firstName);
+   console.log("this msg is a test");
     this.router.navigate(['/addressdetail']);
     }
   }   
